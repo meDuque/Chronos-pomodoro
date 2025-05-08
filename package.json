@@ -8,7 +8,7 @@
     "npm": "11.3.x"
   },
   "scripts": {
-    "dev": "vite",
+    "dev": "vite --host",
     "check": "npx @biomejs/biome check --write src",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
