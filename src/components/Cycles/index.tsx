@@ -1,15 +1,32 @@
 import styles from './styles.module.css'
 
-interface CyclesProps extends React.ComponentProps<'input'> {
-  id: string
-  labelText?: string
+interface CyclesProps {
+  children?: React.ReactNode
 }
 
-export function Cycles({ id, type, labelText, ...rest }: CyclesProps) {
+export function Cycles({ children }: CyclesProps) {
   return (
     <>
-      {labelText && <label htmlFor={id}>{labelText}</label>}
-      <input className={styles.input} type={type} id={id} {...rest} />
+      <div className={styles.cycles}>
+        <span>Ciclos:</span>
+
+        <div className={styles.cycleDots}>
+          <span className={`${styles.cycleDot} ${styles.workTime}`}></span>
+          <span
+            className={`${styles.cycleDot} ${styles.shortBreakTime}`}
+          ></span>
+          <span className={`${styles.cycleDot} ${styles.workTime}`}></span>
+          <span
+            className={`${styles.cycleDot} ${styles.shortBreakTime}`}
+          ></span>
+          <span className={`${styles.cycleDot} ${styles.workTime}`}></span>
+          <span
+            className={`${styles.cycleDot} ${styles.shortBreakTime}`}
+          ></span>
+          <span className={`${styles.cycleDot} ${styles.workTime}`}></span>
+          <span className={`${styles.cycleDot} ${styles.longBreakTime}`}></span>
+        </div>
+      </div>
     </>
   )
 }
