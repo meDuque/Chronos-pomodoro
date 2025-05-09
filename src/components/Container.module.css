@@ -1,0 +1,13 @@
+.container-fluid {
+  margin: auto;
+}
+
+.container {
+  max-width: 98rem;
+  margin: 0 auto;
+}
+
+.content {
+  text-align: center;
+  margin: 3.2rem;
+}
