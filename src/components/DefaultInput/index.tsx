@@ -6,7 +6,7 @@ interface DefaultInputProps extends React.ComponentProps<'input'> {
 export function DefaultInput({ id, type, labelText }: DefaultInputProps) {
   return (
     <>
-      {labelText ? <label htmlFor={id}>{labelText}</label> : null}
+      {labelText && <label htmlFor={id}>{labelText}</label>}
       <input type={type} id={id} />
     </>
   )
