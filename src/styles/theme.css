@@ -31,4 +31,7 @@
 
   --text-default: var(--gray-100);
   --text-muted: var(--gray-300);
+
+  --disabled: var(--gray-400);
+  --text-disabled: var(--gray-300);
 }
