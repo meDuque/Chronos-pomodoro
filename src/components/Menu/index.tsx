@@ -1,10 +1,5 @@
 import { HistoryIcon, HouseIcon, SettingsIcon, SunIcon } from 'lucide-react'
-import type { ReactNode } from 'react'
 import styles from './styles.module.css'
-
-type MenuProps = {
-  children?: string | ReactNode
-}
 
 export const Menu = () => {
   return (
