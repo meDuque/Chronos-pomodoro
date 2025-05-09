@@ -1,16 +1,11 @@
 import styles from './styles.module.css'
 
-interface DefaultInputProps extends React.ComponentProps<'input'> {
+interface CyclesProps extends React.ComponentProps<'input'> {
   id: string
   labelText?: string
 }
 
-export function DefaultInput({
-  id,
-  type,
-  labelText,
-  ...rest
-}: DefaultInputProps) {
+export function Cycles({ id, type, labelText, ...rest }: CyclesProps) {
   return (
     <>
       {labelText && <label htmlFor={id}>{labelText}</label>}
