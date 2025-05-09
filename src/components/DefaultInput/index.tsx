@@ -1,3 +1,5 @@
+import styles from './styles.module.css'
+
 interface DefaultInputProps extends React.ComponentProps<'input'> {
   id: string
   labelText?: string
