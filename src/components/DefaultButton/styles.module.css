@@ -22,3 +22,12 @@
 .button:hover {
   filter: brightness(70%);
 }
+
+.green {
+  background: var(--primary);
+  color: var(--text-over-primary);
+}
+.red {
+  background: var(--error);
+  color: var(--text-over-error);
+}
