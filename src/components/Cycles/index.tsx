@@ -1,10 +1,10 @@
 import styles from './styles.module.css'
 
-interface CyclesProps {
-  children?: React.ReactNode
-}
+// interface CyclesProps {
+//   children?: React.ReactNode
+// }
 
-export function Cycles({ children }: CyclesProps) {
+export function Cycles() {
   return (
     <>
       <div className={styles.cycles}>
