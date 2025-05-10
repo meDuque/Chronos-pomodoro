@@ -12,8 +12,8 @@ interface MainFormProps {
 export function MainForm(_props: MainFormProps) {
   return (
     <>
-      <form className='form' action=''>
-        <div className='formRow'>
+      <form className={styles.form} action=''>
+        <div className={styles.formRow}>
           <DefaultInput
             id='meuInput'
             type='text'
@@ -22,15 +22,15 @@ export function MainForm(_props: MainFormProps) {
           />
         </div>
 
-        <div className='formRow'>
+        <div className={styles.formRow}>
           <p>Lorem ipsum dolor sit amet.</p>
         </div>
 
-        <div className='formRow'>
+        <div className={styles.formRow}>
           <Cycles />
         </div>
 
-        <div className='formRow'>
+        <div className={styles.formRow}>
           <DefaultButton icon={<PlayCircleIcon />} />
         </div>
       </form>
