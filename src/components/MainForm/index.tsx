@@ -3,6 +3,7 @@ import type { ReactNode } from 'react'
 import { Cycles } from '../Cycles'
 import { DefaultButton } from '../DefaultButton'
 import { DefaultInput } from '../DefaultInput'
+import styles from './styles.module.css'
 
 interface MainFormProps {
   children?: ReactNode
