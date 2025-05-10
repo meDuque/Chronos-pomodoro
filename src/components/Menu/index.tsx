@@ -1,7 +1,25 @@
 import { HistoryIcon, HouseIcon, SettingsIcon, SunIcon } from 'lucide-react'
+import { useState } from 'react'
 import styles from './styles.module.css'
 
+type ThemeProps = 'dark' | 'light'
+
 export const Menu = () => {
+  const [theme, setTheme] = useState<ThemeProps>('dark')
+
+  function handleThemeChange(
+    event: React.MouseEvent<HTMLAnchorElement, MouseEvent>,
+  ) {
+    event.preventDefault()
+    setTheme(prevTheme => {
+      const nextTheme = prevTheme === 'dark' ? 'light' : 'dark'
+      // document.documentElement.setAttribute('data-theme', nextTheme) //! Do not use this line here
+      return nextTheme
+    })
+
+    document.documentElement.setAttribute('data-theme', theme)
+  }
+
   return (
     <nav className={styles.menu}>
       <a
@@ -33,6 +51,7 @@ export const Menu = () => {
         className={styles.menuLink}
         aria-label='Mudar o tema da Aplicação'
         title='Mudar o tema da Aplicação'
+        onClick={handleThemeChange}
       >
         <SunIcon />
       </a>
