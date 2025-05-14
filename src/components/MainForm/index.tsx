@@ -1,5 +1,6 @@
 import { PlayCircleIcon } from 'lucide-react'
 import type { ReactNode } from 'react'
+import { useTaskContext } from '../../contexts/TaskContext'
 import { Cycles } from '../Cycles'
 import { DefaultButton } from '../DefaultButton'
 import { DefaultInput } from '../DefaultInput'
@@ -10,9 +11,20 @@ interface MainFormProps {
 }
 
 export function MainForm(_props: MainFormProps) {
+  const { setState } = useTaskContext()
+
+  function handleClick() {
+    setState(prevState => {
+      return { ...prevState, formattedSecondsRemaining: '21:00' }
+    })
+  }
+
   return (
     <>
       <form className={styles.form} action=''>
+        <button onClick={handleClick} type='button'>
+          Clicar
+        </button>
         <div className={styles.formRow}>
           <DefaultInput
             id='meuInput'
