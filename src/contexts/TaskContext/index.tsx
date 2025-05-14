@@ -1,6 +1,14 @@
 import { createContext, useContext, useState } from 'react'
 import type { TaskStateModel } from '../../models/TaskStateModel'
 
+interface TaskContextProps {
+  state: TaskStateModel
+  setState: React.Dispatch<React.SetStateAction<TaskStateModel>>
+}
+interface TaskContextProviderProps {
+  children: React.ReactNode
+}
+
 const initialState: TaskStateModel = {
   tasks: [],
   secondsRemaining: 0,
@@ -12,13 +20,6 @@ const initialState: TaskStateModel = {
     shortBreakTime: 5,
     longBreakTime: 15,
   },
-}
-interface TaskContextProps {
-  state: TaskStateModel
-  setState: React.Dispatch<React.SetStateAction<TaskStateModel>>
-}
-interface TaskContextProviderProps {
-  children: React.ReactNode
 }
 
 const initialContextValue = {
