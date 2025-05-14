@@ -10,9 +10,14 @@ interface MainFormProps {
 }
 
 export function MainForm(_props: MainFormProps) {
+  function handleCreateNewTask(event: React.FormEvent<HTMLFormElement>) {
+    event.preventDefault()
+    console.log('Deu certo!', Date.now())
+  }
+
   return (
     <>
-      <form className={styles.form} action=''>
+      <form className={styles.form} action='' onSubmit={handleCreateNewTask}>
         <div className={styles.formRow}>
           <DefaultInput
             id='meuInput'
