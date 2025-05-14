@@ -7,6 +7,12 @@ export function Cycles() {
   const { state } = useTaskContext()
   const cycleStep = Array.from({ length: state.currentCycle })
 
+  enum cycleDescriptionMap {
+    workTime = 'foco',
+    shortBreakTime = 'descanso curto',
+    longBreakTime = 'descanso longo',
+  }
+
   return (
     <>
       <div className={styles.cycles}>
@@ -20,12 +26,11 @@ export function Cycles() {
               <span
                 key={index}
                 className={`${styles.cycleDot} ${styles[nextCycleType]}`}
-                title={`Indicador de ciclo "${nextCycleType}"`}
-                aria-label={`Indicador de ciclo "${nextCycleType}"`}
+                title={`Indicador de ciclo de ${cycleDescriptionMap[nextCycleType]}`}
+                aria-label={`Indicador de ciclo de ${cycleDescriptionMap[nextCycleType]}`}
               ></span>
             )
           })}
-          {/* <span className={`${styles.cycleDot} ${styles.workTime}`}></span> */}
         </div>
       </div>
     </>
