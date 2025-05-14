@@ -1,6 +1,6 @@
 import { PlayCircleIcon } from 'lucide-react'
 import type { ReactNode } from 'react'
-import { useTaskContext } from '../../contexts/TaskContext'
+import { useTaskContext } from '../../contexts/TaskContext/UseTaskContext'
 import { Cycles } from '../Cycles'
 import { DefaultButton } from '../DefaultButton'
 import { DefaultInput } from '../DefaultInput'
