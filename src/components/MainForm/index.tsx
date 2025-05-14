@@ -74,12 +74,14 @@ export function MainForm(_props: MainFormProps) {
         </div>
 
         <div className={styles.formRow}>
-          <p>Lorem ipsum dolor sit amet.</p>
+          <p>Próximo intervalo é de {state.activeTask?.duration}min</p>
         </div>
 
-        <div className={styles.formRow}>
-          <Cycles />
-        </div>
+        {state.currentCycle > 0 && (
+          <div className={styles.formRow}>
+            <Cycles />
+          </div>
+        )}
 
         <div className={styles.formRow}>
           <DefaultButton icon={<PlayCircleIcon />} />
