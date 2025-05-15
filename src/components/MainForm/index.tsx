@@ -85,7 +85,13 @@ export function MainForm(_props: MainFormProps) {
         )}
 
         <div className={styles.formRow}>
-          <DefaultButton icon={<PlayCircleIcon />} />
+          {!state.activeTask && (
+            <DefaultButton
+              title='Iniciar nova tarefa'
+              aria-label='Iniciar nova tarefa'
+              icon={<PlayCircleIcon />}
+            />
+          )}
         </div>
       </form>
     </>
