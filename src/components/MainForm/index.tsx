@@ -68,6 +68,7 @@ export function MainForm(_props: MainFormProps) {
             labelText='Task'
             placeholder='Digite algo'
             ref={taskNameInput}
+            disabled={!!state.activeTask}
             // value={taskName}
             // onChange={e => setTaskName(e.target.value)}
           />
