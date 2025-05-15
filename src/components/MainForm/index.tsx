@@ -1,4 +1,4 @@
-import { PlayCircleIcon } from 'lucide-react'
+import { PlayCircleIcon, StopCircleIcon } from 'lucide-react'
 import { type ReactNode, useRef, useState } from 'react'
 import { useTaskContext } from '../../contexts/TaskContext/UseTaskContext'
 import type { TaskModel } from '../../models/TaskModel'
@@ -85,11 +85,20 @@ export function MainForm(_props: MainFormProps) {
         )}
 
         <div className={styles.formRow}>
-          {!state.activeTask && (
+          {!state.activeTask ? (
             <DefaultButton
               title='Iniciar nova tarefa'
               aria-label='Iniciar nova tarefa'
+              type='submit'
               icon={<PlayCircleIcon />}
+            />
+          ) : (
+            <DefaultButton
+              title='Interromper tarefa atual'
+              aria-label='Interromper tarefa atual'
+              type='button'
+              color={'red'}
+              icon={<StopCircleIcon />}
             />
           )}
         </div>
