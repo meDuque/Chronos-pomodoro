@@ -51,9 +51,21 @@ export function MainForm(_props: MainFormProps) {
         config: { ...prevState.config },
         activeTask: newTask,
         currentCycle: nextCycle,
-        secondsRemaining, // TODO: add seconds remaining select
-        formattedSecondsRemaining: formatSecondsToMinutes(secondsRemaining), // TODO: add formatted seconds remaining select
+        secondsRemaining,
+        formattedSecondsRemaining: formatSecondsToMinutes(secondsRemaining),
         tasks: [...prevState.tasks, newTask],
+      }
+    })
+  }
+
+  function handleInterruptTask() {
+    setState(prevState => {
+      return {
+        ...prevState,
+        config: { ...prevState.config },
+        activeTask: null,
+        secondsRemaining: 0,
+        formattedSecondsRemaining: '00:00',
       }
     })
   }
@@ -91,6 +103,7 @@ export function MainForm(_props: MainFormProps) {
               aria-label='Iniciar nova tarefa'
               type='submit'
               icon={<PlayCircleIcon />}
+              key={'Butão de iniciar nova tarefa'}
             />
           ) : (
             <DefaultButton
@@ -99,6 +112,8 @@ export function MainForm(_props: MainFormProps) {
               type='button'
               color={'red'}
               icon={<StopCircleIcon />}
+              onClick={handleInterruptTask}
+              key={'Butão de interromper tarefa atual'}
             />
           )}
         </div>
