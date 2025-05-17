@@ -1,5 +1,5 @@
 import { PlayCircleIcon, StopCircleIcon } from 'lucide-react'
-import { type ReactNode, useRef, useState } from 'react'
+import { useRef } from 'react'
 import { useTaskContext } from '../../contexts/TaskContext/UseTaskContext'
 import type { TaskModel } from '../../models/TaskModel'
 import { formatSecondsToMinutes } from '../../utils/formatSecondsToMinutes'
@@ -10,11 +10,7 @@ import { DefaultButton } from '../DefaultButton'
 import { DefaultInput } from '../DefaultInput'
 import styles from './styles.module.css'
 
-interface MainFormProps {
-  children?: ReactNode
-}
-
-export function MainForm(_props: MainFormProps) {
+export function MainForm() {
   const { state, setState } = useTaskContext()
   const taskNameInput = useRef<HTMLInputElement>(null)
 
@@ -87,8 +83,6 @@ export function MainForm(_props: MainFormProps) {
             placeholder='Digite algo'
             ref={taskNameInput}
             disabled={!!state.activeTask}
-            // value={taskName}
-            // onChange={e => setTaskName(e.target.value)}
           />
         </div>
 
