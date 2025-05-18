@@ -32,6 +32,11 @@ export function TaskContextProvider({ children }: TaskContextProviderProps) {
             secondsRemaining: state.secondsRemaining - action.payload,
           }
         }
+        case 'RESET': {
+          return {
+            secondsRemaining: 0,
+          }
+        }
       }
       return state
     },
@@ -75,6 +80,16 @@ export function TaskContextProvider({ children }: TaskContextProviderProps) {
           }}
         >
           Decrementar -50
+        </button>
+      </Container>
+
+      <Container>
+        <button
+          onClick={() => {
+            dispatch({ type: 'RESET' })
+          }}
+        >
+          RESET
         </button>
       </Container>
 
