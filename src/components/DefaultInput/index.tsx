@@ -5,12 +5,7 @@ interface DefaultInputProps extends React.ComponentProps<'input'> {
   labelText?: string
 }
 
-export function DefaultInput({
-  id,
-  type,
-  labelText,
-  ...rest
-}: DefaultInputProps) {
+export function DefaultInput({ id, type, labelText, ...rest }: DefaultInputProps) {
   return (
     <>
       {labelText && <label htmlFor={id}>{labelText}</label>}

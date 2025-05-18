@@ -1,10 +1,4 @@
-import {
-  HistoryIcon,
-  HouseIcon,
-  MoonIcon,
-  SettingsIcon,
-  SunIcon,
-} from 'lucide-react'
+import { HistoryIcon, HouseIcon, MoonIcon, SettingsIcon, SunIcon } from 'lucide-react'
 import { useEffect, useState } from 'react'
 import styles from './styles.module.css'
 
@@ -21,9 +15,7 @@ export const Menu = () => {
     light: <MoonIcon />,
   }
 
-  function handleThemeChange(
-    event: React.MouseEvent<HTMLAnchorElement, MouseEvent>,
-  ) {
+  function handleThemeChange(event: React.MouseEvent<HTMLAnchorElement, MouseEvent>) {
     event.preventDefault()
     setTheme(prevTheme => {
       const nextTheme = prevTheme === 'dark' ? 'light' : 'dark'
@@ -39,28 +31,13 @@ export const Menu = () => {
 
   return (
     <nav className={styles.menu}>
-      <a
-        href='#'
-        className={styles.menuLink}
-        aria-label='Ir para a Home'
-        title='Ir para a Home'
-      >
+      <a href='#' className={styles.menuLink} aria-label='Ir para a Home' title='Ir para a Home'>
         <HouseIcon />
       </a>
-      <a
-        href='#'
-        className={styles.menuLink}
-        aria-label='Ir para o Histórico'
-        title='Ir para o Histórico'
-      >
+      <a href='#' className={styles.menuLink} aria-label='Ir para o Histórico' title='Ir para o Histórico'>
         <HistoryIcon />
       </a>
-      <a
-        href='#'
-        className={styles.menuLink}
-        aria-label='Ir para as Configurações'
-        title='Ir para as Configurações'
-      >
+      <a href='#' className={styles.menuLink} aria-label='Ir para as Configurações' title='Ir para as Configurações'>
         <SettingsIcon />
       </a>
       <a
