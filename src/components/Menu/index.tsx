@@ -31,13 +31,28 @@ export const Menu = () => {
 
   return (
     <nav className={styles.menu}>
-      <a href='#' className={styles.menuLink} aria-label='Ir para a Home' title='Ir para a Home'>
+      <a
+        href='#'
+        className={styles.menuLink}
+        aria-label='Ir para a Home'
+        title='Ir para a Home'
+      >
         <HouseIcon />
       </a>
-      <a href='#' className={styles.menuLink} aria-label='Ir para o Histórico' title='Ir para o Histórico'>
+      <a
+        href='#'
+        className={styles.menuLink}
+        aria-label='Ir para o Histórico'
+        title='Ir para o Histórico'
+      >
         <HistoryIcon />
       </a>
-      <a href='#' className={styles.menuLink} aria-label='Ir para as Configurações' title='Ir para as Configurações'>
+      <a
+        href='#'
+        className={styles.menuLink}
+        aria-label='Ir para as Configurações'
+        title='Ir para as Configurações'
+      >
         <SettingsIcon />
       </a>
       <a

@@ -9,16 +9,12 @@
     "indentStyle": "space",
     "indentWidth": 2,
     "lineEnding": "lf",
-    "lineWidth": 120,
+    "lineWidth": 95,
     "attributePosition": "auto",
     "bracketSpacing": true
   },
   "organizeImports": { "enabled": true },
-  "linter": {
-    "enabled": true,
-    "rules": { "recommended": false },
-    "ignore": ["dist"]
-  },
+  "linter": { "enabled": true, "rules": { "recommended": false }, "ignore": ["dist"] },
   "javascript": {
     "formatter": {
       "jsxQuoteStyle": "single",
@@ -113,11 +109,7 @@
             "noUnreachable": "off",
             "noUnreachableSuper": "off"
           },
-          "style": {
-            "noArguments": "error",
-            "noVar": "error",
-            "useConst": "error"
-          },
+          "style": { "noArguments": "error", "noVar": "error", "useConst": "error" },
           "suspicious": {
             "noClassAssign": "off",
             "noDuplicateClassMembers": "off",
@@ -137,10 +129,7 @@
       "linter": {
         "rules": {
           "complexity": { "noUselessTypeConstraint": "error" },
-          "correctness": {
-            "noUnusedVariables": "error",
-            "useArrayLiterals": "off"
-          },
+          "correctness": { "noUnusedVariables": "error", "useArrayLiterals": "off" },
           "style": { "noNamespace": "error", "useAsConstAssertion": "error" },
           "suspicious": {
             "noExplicitAny": "error",
@@ -283,14 +272,7 @@
           "ononline"
         ]
       },
-      "linter": {
-        "rules": {
-          "correctness": {
-            "useExhaustiveDependencies": "warn",
-            "useHookAtTopLevel": "error"
-          }
-        }
-      }
+      "linter": { "rules": { "correctness": { "useExhaustiveDependencies": "warn", "useHookAtTopLevel": "error" } } }
     },
     {
       "include": ["**/*.{ts,tsx}"],
@@ -373,11 +355,7 @@
             "noUnreachable": "off",
             "noUnreachableSuper": "off"
           },
-          "style": {
-            "noArguments": "error",
-            "noVar": "error",
-            "useConst": "error"
-          },
+          "style": { "noArguments": "error", "noVar": "error", "useConst": "error" },
           "suspicious": {
             "noClassAssign": "off",
             "noDuplicateClassMembers": "off",
@@ -396,14 +374,8 @@
       "include": ["**/*.{ts,tsx}"],
       "linter": {
         "rules": {
-          "complexity": {
-            "noUselessThisAlias": "error",
-            "noUselessTypeConstraint": "error"
-          },
-          "correctness": {
-            "noUnusedVariables": "error",
-            "useArrayLiterals": "off"
-          },
+          "complexity": { "noUselessThisAlias": "error", "noUselessTypeConstraint": "error" },
+          "correctness": { "noUnusedVariables": "error", "useArrayLiterals": "off" },
           "style": { "noNamespace": "error", "useAsConstAssertion": "error" },
           "suspicious": {
             "noExplicitAny": "error",
@@ -546,14 +518,7 @@
           "ononline"
         ]
       },
-      "linter": {
-        "rules": {
-          "correctness": {
-            "useExhaustiveDependencies": "warn",
-            "useHookAtTopLevel": "error"
-          }
-        }
-      }
+      "linter": { "rules": { "correctness": { "useExhaustiveDependencies": "warn", "useHookAtTopLevel": "error" } } }
     }
   ]
 }
