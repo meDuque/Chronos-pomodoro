@@ -13,7 +13,3 @@
   justify-content: center;
   gap: 2.4rem;
 }
-
-.bold {
-  color: var(--primary);
-}

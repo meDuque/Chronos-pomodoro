@@ -8,42 +8,15 @@ import { getNextCycleType } from '../../utils/getNextCycleType'
 import { Cycles } from '../Cycles'
 import { DefaultButton } from '../DefaultButton'
 import { DefaultInput } from '../DefaultInput'
+import { Tips } from '../Tips'
 import styles from './styles.module.css'
 
 export function MainForm() {
   const { state, dispatch } = useTaskContext()
   const taskNameInput = useRef<HTMLInputElement>(null)
-
   // cycle
   const nextCycle = getNextCycle(state.currentCycle)
   const nextCycleType = getNextCycleType(nextCycle)
-  // tips
-  const tipsForWhenActiveTask = {
-    workTime: (
-      <span>
-        Foque por <b className={styles.bold}>{state.config.workTime}min.</b>
-      </span>
-    ),
-    shortBreakTime: (
-      <span>
-        Descanse por <b className={styles.bold}>{state.config.shortBreakTime}min.</b>
-      </span>
-    ),
-    longBreakTime: <span>Descanso longo</span>,
-  }
-  const tipsForNonActiveTask = {
-    workTime: (
-      <span>
-        Próximo ciclo é de <b className={styles.bold}>{state.config.workTime}min.</b>
-      </span>
-    ),
-    shortBreakTime: (
-      <span>
-        Próximo intervalo é de <b className={styles.bold}>{state.config.shortBreakTime}min.</b>
-      </span>
-    ),
-    longBreakTime: <span>Próximo descanso será longo</span>,
-  }
 
   function handleCreateNewTask(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault()
@@ -89,8 +62,7 @@ export function MainForm() {
         </div>
 
         <div className={styles.formRow}>
-          {!!state.activeTask && tipsForWhenActiveTask[state.activeTask.type]}
-          {!state.activeTask && tipsForNonActiveTask[nextCycleType]}
+          <Tips />
         </div>
 
         {state.currentCycle > 0 && (
