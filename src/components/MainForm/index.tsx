@@ -5,7 +5,6 @@ import { TaskActionTypes } from '../../contexts/TaskContext/taskActions'
 import type { TaskModel } from '../../models/TaskModel'
 import { getNextCycle } from '../../utils/getNextCycle'
 import { getNextCycleType } from '../../utils/getNextCycleType'
-import { TimerWorkerManager } from '../../workers/TimerWorkerManager'
 import { Cycles } from '../Cycles'
 import { DefaultButton } from '../DefaultButton'
 import { DefaultInput } from '../DefaultInput'
@@ -42,9 +41,6 @@ export function MainForm() {
     }
 
     dispatch({ type: TaskActionTypes.START_TASK, payload: newTask })
-
-    const worker = TimerWorkerManager.getInstance()
-    worker.onmessage(() => {})
   }
 
   function handleInterruptTask() {
