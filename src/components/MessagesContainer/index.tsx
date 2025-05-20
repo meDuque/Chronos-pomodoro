@@ -21,6 +21,7 @@ export function MessagesContainer({ children }: MessagesContainerProps) {
         pauseOnHover
         theme='light'
         transition={Bounce}
+        closeButton={false}
       />
     </>
   );
