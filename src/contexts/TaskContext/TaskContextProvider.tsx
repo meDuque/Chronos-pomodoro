@@ -2,6 +2,7 @@ import { useEffect, useReducer } from 'react'
 import { TimerWorkerManager } from '../../workers/TimerWorkerManager'
 import { TaskContext } from './TaskContext'
 import { initialTaskState } from './initialTaskState'
+import { TaskActionTypes } from './taskActions'
 import { taskReducer } from './taskReducer'
 
 type TaskContextProviderProps = {
@@ -14,12 +15,18 @@ export function TaskContextProvider({ children }: TaskContextProviderProps) {
 
   worker.onmessage(e => {
     const countDownSeconds = e.data
-    console.log(countDownSeconds)
+    // console.log(countDownSeconds)
 
     if (countDownSeconds <= 0) {
-      console.log('Worker completed')
-
+      dispatch({
+        type: TaskActionTypes.COMPLETE_TASK,
+      })
       worker.terminate()
+    } else {
+      dispatch({
+        type: TaskActionTypes.COUNT_DOWN,
+        payload: { secondsRemaining: countDownSeconds },
+      })
     }
   })
 
