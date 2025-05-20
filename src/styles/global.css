@@ -6,6 +6,20 @@
 
 html {
   font-size: 62.5%;
+
+  ::-webkit-scrollbar {
+    width: 1.4rem;
+  }
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: var(--primary);
+    border-radius: 1rem;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    filter: brightness(80%);
+  }
 }
 
 body {
