@@ -1,4 +1,5 @@
 import { useEffect, useReducer, useRef } from 'react'
+import type { TaskStateModel } from '../../models/TaskStateModel'
 import { loadBeep } from '../../utils/loadBeep'
 import { TimerWorkerManager } from '../../workers/TimerWorkerManager'
 import { TaskContext } from './TaskContext'
@@ -11,7 +12,17 @@ type TaskContextProviderProps = {
 }
 
 export function TaskContextProvider({ children }: TaskContextProviderProps) {
-  const [state, dispatch] = useReducer(taskReducer, initialTaskState)
+  const [state, dispatch] = useReducer(taskReducer, initialTaskState, () => {
+    const storageState = localStorage.getItem('state') || null
+
+    if (storageState === null) return initialTaskState
+
+    const parsedStorageState = JSON.parse(storageState) as TaskStateModel
+
+    return { ...parsedStorageState, activeTask: null, formattedSecondsRemaining: '00:00' }
+
+    return initialTaskState
+  })
   const worker = TimerWorkerManager.getInstance()
   const playBeepRef = useRef<ReturnType<typeof loadBeep> | null>(null)
 
@@ -37,10 +48,14 @@ export function TaskContextProvider({ children }: TaskContextProviderProps) {
   })
 
   useEffect(() => {
+    localStorage.setItem('state', JSON.stringify(state))
+
     if (!state.activeTask) {
       worker.terminate()
     }
+
     document.title = `${state.formattedSecondsRemaining} Chronos Pomodoro App`
+
     worker.postMessage(state)
   }, [state, worker])
 
