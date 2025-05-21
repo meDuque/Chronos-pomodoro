@@ -15,21 +15,22 @@ import styles from './styles.module.css'
 export function MainForm() {
   const { state, dispatch } = useTaskContext()
   const taskNameInput = useRef<HTMLInputElement>(null)
+  const lastTaskName = state.tasks[state.tasks.length - 1]?.name || ''
   // cycle
   const nextCycle = getNextCycle(state.currentCycle)
   const nextCycleType = getNextCycleType(nextCycle)
 
   function handleCreateNewTask(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault()
-    showMessage.dismiss();
+    showMessage.dismiss()
 
     if (taskNameInput.current === null) return
 
     const taskName = taskNameInput.current.value.trim()
 
     if (!taskName) {
-      showMessage.warn('Digite o nome da tarefa');
-      return;
+      showMessage.warn('Digite o nome da tarefa')
+      return
     }
 
     const newTask: TaskModel = {
@@ -44,12 +45,12 @@ export function MainForm() {
 
     dispatch({ type: TaskActionTypes.START_TASK, payload: newTask })
 
-    showMessage.success('Tarefa iniciada');
+    showMessage.success('Tarefa iniciada')
   }
 
   function handleInterruptTask() {
-    showMessage.dismiss();
-    showMessage.error('Tarefa interrompida!');
+    showMessage.dismiss()
+    showMessage.error('Tarefa interrompida!')
     dispatch({ type: TaskActionTypes.INTERRUPT_TASK })
   }
 
@@ -64,6 +65,7 @@ export function MainForm() {
             placeholder='Digite algo'
             ref={taskNameInput}
             disabled={!!state.activeTask}
+            defaultValue={lastTaskName}
           />
         </div>
 
