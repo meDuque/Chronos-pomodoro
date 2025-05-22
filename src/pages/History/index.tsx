@@ -49,9 +49,9 @@ export function History() {
             <table>
               <thead>
                 <tr>
-                  <th onClick={()=>handleSortTasks({field:'name'})}>Tarefa</th>
-                  <th onClick={()=>handleSortTasks({field:'duration'})}>Duração</th>
-                  <th onClick={()=>handleSortTasks({field:'startDate'})}>Data</th>
+                  <th className={styles.thSort} onClick={()=>handleSortTasks({field:'name'})}>Tarefa ↕</th>
+                  <th className={styles.thSort} onClick={()=>handleSortTasks({field:'duration'})}>Duração ↕</th>
+                  <th className={styles.thSort} onClick={()=>handleSortTasks({field:'startDate'})}>Data ↕</th>
                   <th>Status</th>
                   <th>Tipo</th>
                 </tr>
