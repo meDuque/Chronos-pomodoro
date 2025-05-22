@@ -10,6 +10,7 @@ import { formatDate } from '../../utils/formatDate'
 import { getTaskStatus } from '../../utils/getaTaskStatus'
 import { sortTasks, type SortTasksOptions } from '../../utils/sortTasks'
 import styles from './styles.module.css'
+import { toast } from 'react-toastify'
 
 export function History() {
   const { state, dispatch } = useTaskContext()
@@ -40,9 +41,13 @@ export function History() {
   }
 
   function handleResetHistory() {
-    if (!confirm('Tem certeza que deseja resetar a histórico?')) return
-
-    dispatch({ type: TaskActionTypes.RESET_STATE })
+    toast('Bla bla bla', {
+      autoClose: false,
+      closeOnClick: false,
+      draggable: false,
+    })
+    // if (!confirm('Tem certeza que deseja resetar a histórico?')) return
+    // dispatch({ type: TaskActionTypes.RESET_STATE })
   }
 
   return (
@@ -52,16 +57,16 @@ export function History() {
         <Container>
           <Heading>
             <span>Histórico</span>
-            {hasTask &&(
+            {hasTask && (
               <span className={styles.buttonContainer}>
-              <DefaultButton
-                icon={<TrashIcon />}
-                color='red'
-                aria-label='Apagar todo o histórico'
-                title='Apagar o histórico'
-                onClick={handleResetHistory}
-              />
-            </span>
+                <DefaultButton
+                  icon={<TrashIcon />}
+                  color='red'
+                  aria-label='Apagar todo o histórico'
+                  title='Apagar o histórico'
+                  onClick={handleResetHistory}
+                />
+              </span>
             )}
           </Heading>
         </Container>
@@ -69,57 +74,55 @@ export function History() {
         <Container>
           {hasTask && (
             <div className={styles.responsiveTable}>
-            <table>
-              <thead>
-                <tr>
-                  <th
-                    className={styles.thSort}
-                    onClick={() => handleSortTasks({ field: 'name' })}
-                  >
-                    Tarefa ↕
-                  </th>
-                  <th
-                    className={styles.thSort}
-                    onClick={() => handleSortTasks({ field: 'duration' })}
-                  >
-                    Duração ↕
-                  </th>
-                  <th
-                    className={styles.thSort}
-                    onClick={() => handleSortTasks({ field: 'startDate' })}
-                  >
-                    Data ↕
-                  </th>
-                  <th>Status</th>
-                  <th>Tipo</th>
-                </tr>
-              </thead>
+              <table>
+                <thead>
+                  <tr>
+                    <th
+                      className={styles.thSort}
+                      onClick={() => handleSortTasks({ field: 'name' })}
+                    >
+                      Tarefa ↕
+                    </th>
+                    <th
+                      className={styles.thSort}
+                      onClick={() => handleSortTasks({ field: 'duration' })}
+                    >
+                      Duração ↕
+                    </th>
+                    <th
+                      className={styles.thSort}
+                      onClick={() => handleSortTasks({ field: 'startDate' })}
+                    >
+                      Data ↕
+                    </th>
+                    <th>Status</th>
+                    <th>Tipo</th>
+                  </tr>
+                </thead>
 
-              <tbody>
-                {sortTaskOptions.tasks.map(task => {
-                  enum taskTypeDictionary {
-                    workTime = 'Foco',
-                    shortBreakTime = 'Descanso curto',
-                    longBreakTime = 'Descanso longo',
-                  }
+                <tbody>
+                  {sortTaskOptions.tasks.map(task => {
+                    enum taskTypeDictionary {
+                      workTime = 'Foco',
+                      shortBreakTime = 'Descanso curto',
+                      longBreakTime = 'Descanso longo',
+                    }
 
-                  return (
-                    <tr key={task.id}>
-                      <td>{task.name}</td>
-                      <td>{task.duration}</td>
-                      <td>{formatDate(task.startDate)}</td>
-                      <td>{getTaskStatus(task, state.activeTask)}</td>
-                      <td>{taskTypeDictionary[task.type]}</td>
-                    </tr>
-                  )
-                })}
-              </tbody>
-            </table>
-          </div>
+                    return (
+                      <tr key={task.id}>
+                        <td>{task.name}</td>
+                        <td>{task.duration}</td>
+                        <td>{formatDate(task.startDate)}</td>
+                        <td>{getTaskStatus(task, state.activeTask)}</td>
+                        <td>{taskTypeDictionary[task.type]}</td>
+                      </tr>
+                    )
+                  })}
+                </tbody>
+              </table>
+            </div>
           )}
-          {!hasTask && (
-            <p>Ainda não existem tarefas criadas...</p>
-          )}
+          {!hasTask && <p>Ainda não existem tarefas criadas...</p>}
         </Container>
         {/*  */}
       </MainTemplate>
