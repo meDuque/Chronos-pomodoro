@@ -31,16 +31,28 @@
 
 .responsiveTable th,
 .responsiveTable td {
-  border-bottom: .2rem solid var(--gray-700);
+  border-bottom: 0.2rem solid var(--gray-700);
   text-align: left;
   padding: 1.6rem;
 }
 
-.thSort{
+.thSort {
   cursor: pointer;
   transition: all 0.3s ease-in-out;
 }
 
-.thSort:hover{
+.thSort:hover {
   filter: brightness(80%);
+}
+
+p {
+  font-weight: bold;
+  font-size: 1.8rem;
+  text-align: center;
+  color: var(--primary-dark);
+  transition: all 0.3s ease-in-out;
+}
+
+p:hover{
+  color: var(--primary-light);
 }
