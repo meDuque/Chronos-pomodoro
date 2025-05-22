@@ -1,11 +1,11 @@
 import { TrashIcon } from 'lucide-react'
-import { useReducer } from 'react'
 import { Container } from '../../components/Container'
 import { DefaultButton } from '../../components/DefaultButton'
 import { Heading } from '../../components/Heading'
 import { useTaskContext } from '../../contexts/TaskContext/UseTaskContext'
 import { MainTemplate } from '../../templates/MainTemplate'
 import styles from './styles.module.css'
+import { formatDate } from '../../utils/formatDate'
 
 export function History() {
   const { state } = useTaskContext()
@@ -47,7 +47,7 @@ export function History() {
                     <tr key={task.id}>
                       <td>{task.name}</td>
                       <td>{task.duration}</td>
-                      <td>{new Date(task.startDate).toISOString()}</td>
+                      <td>{formatDate(task.startDate)}</td>
                       <td>{task.completeDate}</td>
                       <td>{task.type}</td>
                     </tr>
