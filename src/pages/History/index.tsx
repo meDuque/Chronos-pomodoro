@@ -7,12 +7,24 @@ import { MainTemplate } from '../../templates/MainTemplate'
 import styles from './styles.module.css'
 import { formatDate } from '../../utils/formatDate'
 import { getTaskStatus } from '../../utils/getaTaskStatus'
+import { sortTasks, type SortTasksOptions } from '../../utils/sortTasks'
+import { useState } from 'react'
 
 export function History() {
   const { state } = useTaskContext()
-  const sortedTasks = [...state.tasks].sort((a, b) => {
-    return b.startDate - a.startDate
+  const [sortTaskOptions, setSortTaskOptions] = useState<SortTasksOptions>(() => {
+    return { tasks: sortTasks({ tasks: state.tasks }), field: 'startDate', direction: 'desc' }
   })
+
+  function handleSortTasks({ field }: Pick<SortTasksOptions, 'field'>) {
+    const newDirection = sortTaskOptions.direction === 'desc' ? 'asc' : 'desc'
+
+    setSortTaskOptions({
+      tasks: sortTasks({ direction: newDirection, tasks: sortTaskOptions.tasks, field }),
+      direction: newDirection,
+      field,
+    })
+  }
 
   return (
     <>
@@ -37,16 +49,16 @@ export function History() {
             <table>
               <thead>
                 <tr>
-                  <th>Tarefa</th>
-                  <th>Duração</th>
-                  <th>Data</th>
+                  <th onClick={()=>handleSortTasks({field:'name'})}>Tarefa</th>
+                  <th onClick={()=>handleSortTasks({field:'duration'})}>Duração</th>
+                  <th onClick={()=>handleSortTasks({field:'startDate'})}>Data</th>
                   <th>Status</th>
                   <th>Tipo</th>
                 </tr>
               </thead>
 
               <tbody>
-                {sortedTasks.map(task => {
+                {sortTaskOptions.tasks.map(task => {
                   enum taskTypeDictionary {
                     workTime = 'Foco',
                     shortBreakTime = 'Descanso curto',
