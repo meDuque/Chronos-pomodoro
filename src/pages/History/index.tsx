@@ -11,9 +11,12 @@ import { formatDate } from '../../utils/formatDate'
 import { getTaskStatus } from '../../utils/getaTaskStatus'
 import { sortTasks, type SortTasksOptions } from '../../utils/sortTasks'
 import styles from './styles.module.css'
+import { showMessage } from '../../adapters/showMessage'
+import { TaskActionTypes } from '../../contexts/TaskContext/taskActions'
 
 export function History() {
   const { state, dispatch } = useTaskContext()
+  const [confirmClearHistory, setConfirmClearHistory] = useState(false)
   const hasTask = state.tasks.length > 0
   const [sortTaskOptions, setSortTaskOptions] = useState<SortTasksOptions>(() => {
     return { tasks: sortTasks({ tasks: state.tasks }), field: 'startDate', direction: 'desc' }
@@ -30,6 +33,13 @@ export function History() {
     }))
   }, [state.tasks])
 
+  useEffect(() => {
+    if (!confirmClearHistory) return
+    setConfirmClearHistory(false)
+
+    dispatch({ type: TaskActionTypes.RESET_STATE })
+  }, [confirmClearHistory, dispatch])
+
   function handleSortTasks({ field }: Pick<SortTasksOptions, 'field'>) {
     const newDirection = sortTaskOptions.direction === 'desc' ? 'asc' : 'desc'
 
@@ -41,14 +51,13 @@ export function History() {
   }
 
   function handleResetHistory() {
-    toast(Dialog, {
-      data: 'Tem certeza que deseja apagar o histórico de tarefas?',
-      autoClose: false,
-      closeOnClick: false,
-      draggable: false,
-    })
-    // if (!confirm('Tem certeza que deseja resetar a histórico?')) return
-    // dispatch({ type: TaskActionTypes.RESET_STATE })
+    showMessage.dismiss()
+    showMessage.confim(
+      'Tem certeza que deseja apagar o histórico de tarefas?',
+      confirmation => {
+        setConfirmClearHistory(confirmation)
+      },
+    )
   }
 
   return (
@@ -123,7 +132,9 @@ export function History() {
               </table>
             </div>
           )}
-          {!hasTask && <p className={styles.noHistory}>Ainda não existem tarefas criadas...</p>}
+          {!hasTask && (
+            <p className={styles.noHistory}>Ainda não existem tarefas criadas...</p>
+          )}
         </Container>
         {/*  */}
       </MainTemplate>
