@@ -20,8 +20,6 @@ export function TaskContextProvider({ children }: TaskContextProviderProps) {
     const parsedStorageState = JSON.parse(storageState) as TaskStateModel
 
     return { ...parsedStorageState, activeTask: null, formattedSecondsRemaining: '00:00' }
-
-    return initialTaskState
   })
   const worker = TimerWorkerManager.getInstance()
   const playBeepRef = useRef<ReturnType<typeof loadBeep> | null>(null)
