@@ -10,6 +10,9 @@ import { getTaskStatus } from '../../utils/getaTaskStatus'
 
 export function History() {
   const { state } = useTaskContext()
+  const sortedTasks = [...state.tasks].sort((a, b) => {
+    return b.startDate - a.startDate
+  })
 
   return (
     <>
@@ -43,11 +46,11 @@ export function History() {
               </thead>
 
               <tbody>
-                {state.tasks.map(task => {
+                {sortedTasks.map(task => {
                   enum taskTypeDictionary {
-                    workTime= 'Foco',
-                    shortBreakTime= 'Descanso curto',
-                    longBreakTime= 'Descanso longo',
+                    workTime = 'Foco',
+                    shortBreakTime = 'Descanso curto',
+                    longBreakTime = 'Descanso longo',
                   }
 
                   return (
