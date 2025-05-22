@@ -45,7 +45,7 @@
   filter: brightness(80%);
 }
 
-p {
+.noHistory {
   font-weight: bold;
   font-size: 1.8rem;
   text-align: center;
@@ -53,6 +53,6 @@ p {
   transition: all 0.3s ease-in-out;
 }
 
-p:hover{
+.noHistory:hover{
   color: var(--primary-light);
 }

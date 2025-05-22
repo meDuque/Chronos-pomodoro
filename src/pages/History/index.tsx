@@ -1,16 +1,16 @@
 import { TrashIcon } from 'lucide-react'
 import { useEffect, useState } from 'react'
+import { toast } from 'react-toastify'
 import { Container } from '../../components/Container'
 import { DefaultButton } from '../../components/DefaultButton'
+import { Dialog } from '../../components/Dialog'
 import { Heading } from '../../components/Heading'
-import { TaskActionTypes } from '../../contexts/TaskContext/taskActions'
 import { useTaskContext } from '../../contexts/TaskContext/UseTaskContext'
 import { MainTemplate } from '../../templates/MainTemplate'
 import { formatDate } from '../../utils/formatDate'
 import { getTaskStatus } from '../../utils/getaTaskStatus'
 import { sortTasks, type SortTasksOptions } from '../../utils/sortTasks'
 import styles from './styles.module.css'
-import { toast } from 'react-toastify'
 
 export function History() {
   const { state, dispatch } = useTaskContext()
@@ -41,7 +41,8 @@ export function History() {
   }
 
   function handleResetHistory() {
-    toast('Bla bla bla', {
+    toast(Dialog, {
+      data: 'Tem certeza que deseja apagar o histórico de tarefas?',
       autoClose: false,
       closeOnClick: false,
       draggable: false,
@@ -122,7 +123,7 @@ export function History() {
               </table>
             </div>
           )}
-          {!hasTask && <p>Ainda não existem tarefas criadas...</p>}
+          {!hasTask && <p className={styles.noHistory}>Ainda não existem tarefas criadas...</p>}
         </Container>
         {/*  */}
       </MainTemplate>
