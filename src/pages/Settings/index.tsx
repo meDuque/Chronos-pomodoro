@@ -9,9 +9,10 @@ import type { TaskStateModel } from '../../models/TaskStateModel'
 import { MainTemplate } from '../../templates/MainTemplate'
 import styles from './styles.module.css'
 import { showMessage } from '../../adapters/showMessage'
+import { TaskActionTypes } from '../../contexts/TaskContext/taskActions'
 
 export function Settings() {
-  const { state } = useTaskContext()
+  const { state, dispatch } = useTaskContext()
   const workTimeInput = useRef<HTMLInputElement>(null)
   const shortBreakTimeInput = useRef<HTMLInputElement>(null)
   const longBreakTimeInput = useRef<HTMLInputElement>(null)
@@ -63,6 +64,16 @@ export function Settings() {
       })
       return
     }
+
+    dispatch({
+      type: TaskActionTypes.CHANGE_SETTINGS,
+      payload: {
+        workTime,
+        shortBreakTime,
+        longBreakTime,
+      },
+    })
+    showMessage.success('Configurações atualizadas com sucesso!')
   }
 
   return (
