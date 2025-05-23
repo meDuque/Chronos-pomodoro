@@ -11,6 +11,7 @@ import { formatDate } from '../../utils/formatDate'
 import { getTaskStatus } from '../../utils/getaTaskStatus'
 import { sortTasks, type SortTasksOptions } from '../../utils/sortTasks'
 import styles from './styles.module.css'
+import { ApplicationTittle } from '../../consts/Application'
 
 export function History() {
   const { state, dispatch } = useTaskContext()
@@ -30,6 +31,10 @@ export function History() {
       }),
     }))
   }, [state.tasks])
+
+  useEffect(() => {
+    document.title = `${ApplicationTittle.HISTORY}`
+  }, [])
 
   useEffect(() => {
     if (!confirmClearHistory) return

@@ -1,5 +1,5 @@
 import { SaveIcon } from 'lucide-react'
-import { useRef } from 'react'
+import { useEffect, useRef } from 'react'
 import { Container } from '../../components/Container'
 import { DefaultButton } from '../../components/DefaultButton'
 import { DefaultInput } from '../../components/DefaultInput'
@@ -10,6 +10,7 @@ import { MainTemplate } from '../../templates/MainTemplate'
 import styles from './styles.module.css'
 import { showMessage } from '../../adapters/showMessage'
 import { TaskActionTypes } from '../../contexts/TaskContext/taskActions'
+import { ApplicationTittle } from '../../consts/Application'
 
 export function Settings() {
   const { state, dispatch } = useTaskContext()
@@ -75,6 +76,10 @@ export function Settings() {
     })
     showMessage.success('Configurações atualizadas com sucesso!')
   }
+
+  useEffect(() => {
+    document.title = `${ApplicationTittle.SETTINGS}`
+  }, [])
 
   return (
     <>
