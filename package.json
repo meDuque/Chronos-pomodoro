@@ -4,8 +4,8 @@
   "version": "0.0.0",
   "type": "module",
   "engines": {
-    "node": "22.16.x",
-    "npm": "11.3.x"
+    "node": "^22.16.x",
+    "npm": "^10.9.x"
   },
   "scripts": {
     "dev": "vite --host",
