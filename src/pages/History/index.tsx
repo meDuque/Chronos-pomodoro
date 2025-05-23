@@ -1,18 +1,16 @@
 import { TrashIcon } from 'lucide-react'
 import { useEffect, useState } from 'react'
-import { toast } from 'react-toastify'
+import { showMessage } from '../../adapters/showMessage'
 import { Container } from '../../components/Container'
 import { DefaultButton } from '../../components/DefaultButton'
-import { Dialog } from '../../components/Dialog'
 import { Heading } from '../../components/Heading'
+import { TaskActionTypes } from '../../contexts/TaskContext/taskActions'
 import { useTaskContext } from '../../contexts/TaskContext/UseTaskContext'
 import { MainTemplate } from '../../templates/MainTemplate'
 import { formatDate } from '../../utils/formatDate'
 import { getTaskStatus } from '../../utils/getaTaskStatus'
 import { sortTasks, type SortTasksOptions } from '../../utils/sortTasks'
 import styles from './styles.module.css'
-import { showMessage } from '../../adapters/showMessage'
-import { TaskActionTypes } from '../../contexts/TaskContext/taskActions'
 
 export function History() {
   const { state, dispatch } = useTaskContext()
@@ -39,6 +37,12 @@ export function History() {
 
     dispatch({ type: TaskActionTypes.RESET_STATE })
   }, [confirmClearHistory, dispatch])
+
+  useEffect(() => {
+    return () => {
+      showMessage.dismiss()
+    }
+  }, [])
 
   function handleSortTasks({ field }: Pick<SortTasksOptions, 'field'>) {
     const newDirection = sortTaskOptions.direction === 'desc' ? 'asc' : 'desc'
