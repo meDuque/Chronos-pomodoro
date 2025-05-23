@@ -1,54 +1,102 @@
-# React + TypeScript + Vite
+<div align="center" id="top">
+    <img src="./.github/app.png" alt="Chronus Pomodoro" />
+  &#xa0;
+    <img src="./.github/app1.png" alt="Chronus Pomodoro" />
+  &#xa0;
+    <img src="./.github/app2.png" alt="Chronus Pomodoro" />
+  &#xa0;
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+  <a href="https://chronuspomodoro.verecel.app">Live Demo</a>
+</div>
 
-Currently, two official plugins are available:
+<h1 align="center">Chronus Pomodoro App</h1>
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+<p align="center">
+  <img alt="Github top language" src="https://img.shields.io/github/languages/top/meDuque/chronus-pomodoro?color=56BEB8">
 
-## Expanding the ESLint configuration
+  <img alt="Github language count" src="https://img.shields.io/github/languages/count/meDuque/chronus-pomodoro?color=56BEB8">
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+  <img alt="Repository size" src="https://img.shields.io/github/repo-size/meDuque/chronus-pomodoro?color=56BEB8">
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+  <img alt="License" src="https://img.shields.io/github/license/meDuque/chronus-pomodoro?color=56BEB8">
+
+  <!-- <img alt="Github issues" src="https://img.shields.io/github/issues/meDuque/chronus-pomodoro?color=56BEB8" /> -->
+
+  <!-- <img alt="Github forks" src="https://img.shields.io/github/forks/meDuque/chronus-pomodoro?color=56BEB8" /> -->
+
+  <!-- <img alt="Github stars" src="https://img.shields.io/github/stars/meDuque/chronus-pomodoro?color=56BEB8" /> -->
+</p>
+
+<!-- Status -->
+
+<!-- <h4 align="center">
+	🚧  Chronus Pomodoro 🚀 Under construction...  🚧
+</h4>
+
+<hr> -->
+
+<p align="center">
+  <a href="#dart-about">About</a> &#xa0; | &#xa0;
+  <a href="#sparkles-features">Features</a> &#xa0; | &#xa0;
+  <a href="#rocket-technologies">Technologies</a> &#xa0; | &#xa0;
+  <a href="#white_check_mark-requirements">Requirements</a> &#xa0; | &#xa0;
+  <a href="#checkered_flag-starting">Starting</a> &#xa0; | &#xa0;
+  <a href="#memo-license">License</a> &#xa0; | &#xa0;
+  <a href="https://github.com/meDuque" target="_blank">Author</a>
+</p>
+
+<br>
+
+## :dart: About ##
+
+A pomodoro app that helps you stay focused and productive. It's a simple and intuitive tool that allows you to work in focused 25-minute increments, with scheduled breaks in between.
+
+## :sparkles: Features ##
+
+:heavy_check_mark: Dark and Light theme change;\
+:heavy_check_mark: History data;\
+:heavy_check_mark: Custom timer settings;\
+<!-- :heavy_check_mark: Feature 3; -->
+
+## :rocket: Technologies ##
+
+The following tools were used in this project:
+
+- [Vite](https://vite.dev/)
+- [React](https://pt-br.reactjs.org/)
+- [TypeScript](https://www.typescriptlang.org/)
+<!-- - [Node.js](https://nodejs.org/en/) -->
+<!-- - [React Native](https://reactnative.dev/) -->
+
+## :white_check_mark: Requirements ##
+
+Before starting :checkered_flag:, you need to have [Git](https://git-scm.com) and [Node](https://nodejs.org/en/) installed.
+
+## :checkered_flag: Starting ##
+
+```bash
+# Clone this project
+$ git clone https://github.com/meDuque/chronus-pomodoro
+
+# Access
+$ cd chronus-pomodoro
+
+# Install dependencies
+$ yarn
+
+# Run the project
+$ yarn start
+
+# The server will initialize in the <http://localhost:3000>
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## :memo: License ##
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+This project is under license from MIT. For more details, see the [LICENSE](LICENSE.md) file.
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
+
+Made with :heart: by <a href="https://github.com/meDuque" target="_blank">¡Duque</a>
+
+&#xa0;
+
+<a href="#top">Back to top</a>
