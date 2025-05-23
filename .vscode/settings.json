@@ -1,0 +1,30 @@
+{
+  "window.zoomLevel": 0,
+  "editor.formatOnSave": true,
+  "editor.defaultFormatter": "biomejs.biome",
+  "editor.codeActionsOnSave": {
+    // "source.organizeImports": "always"
+  },
+  "workbench.editor.labelFormat": "short",
+  "files.eol": "\n",
+  /** Extentions */
+  "[prisma]": {},
+  "[typescript]": {},
+  "[javascript]": {},
+  "cSpell.words": [
+    "Chronos",
+    "chronus",
+    "Chronus",
+    "Cirillo",
+    "pomodoro",
+    "Pomodoro",
+    "Pomodoros"
+  ],
+  "createReactTSXComponent.fileExtension": "tsx",
+  "createReactTSXComponent.stylesFormat": "CSS",
+  "workbench.productIconTheme": "fluent-icons",
+  "editor.rulers": [
+    80,
+    120
+  ],
+}
