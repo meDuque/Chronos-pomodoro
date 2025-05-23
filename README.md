@@ -6,7 +6,7 @@
     <img src="./.github/app2.png" alt="Chronus Pomodoro" />
   &#xa0;
 
-  <a href="https://chronuspomodoro.verecel.app">Live Demo</a>
+  <a href="https://chronus-pomodoro-nine.vercel.app/">Live Demo</a>
 </div>
 
 <h1 align="center">Chronus Pomodoro App</h1>
