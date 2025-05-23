@@ -3,15 +3,13 @@ import { Container } from '../../components/Container'
 import { GenericHtml } from '../../components/GenericHtml'
 import { Heading } from '../../components/Heading'
 import { RouterLink } from '../../components/RouterLink'
-import { MainTemplate } from '../../templates/MainTemplate'
 import { ApplicationTittle } from '../../consts/Application'
+import { MainTemplate } from '../../templates/MainTemplate'
 
 export function AboutPomodoro() {
-
-  useEffect(()=>{
+  useEffect(() => {
     document.title = `${ApplicationTittle.ABOUT_POMODORO}`
-  },[])
-
+  }, [])
 
   return (
     <MainTemplate>

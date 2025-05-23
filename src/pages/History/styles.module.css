@@ -53,6 +53,6 @@
   transition: all 0.3s ease-in-out;
 }
 
-.noHistory:hover{
+.noHistory:hover {
   color: var(--primary-light);
 }

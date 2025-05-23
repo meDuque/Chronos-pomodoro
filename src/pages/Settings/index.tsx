@@ -1,16 +1,16 @@
 import { SaveIcon } from 'lucide-react'
 import { useEffect, useRef } from 'react'
+import { showMessage } from '../../adapters/showMessage'
 import { Container } from '../../components/Container'
 import { DefaultButton } from '../../components/DefaultButton'
 import { DefaultInput } from '../../components/DefaultInput'
 import { Heading } from '../../components/Heading'
+import { ApplicationTittle } from '../../consts/Application'
 import { useTaskContext } from '../../contexts/TaskContext/UseTaskContext'
+import { TaskActionTypes } from '../../contexts/TaskContext/taskActions'
 import type { TaskStateModel } from '../../models/TaskStateModel'
 import { MainTemplate } from '../../templates/MainTemplate'
 import styles from './styles.module.css'
-import { showMessage } from '../../adapters/showMessage'
-import { TaskActionTypes } from '../../contexts/TaskContext/taskActions'
-import { ApplicationTittle } from '../../consts/Application'
 
 export function Settings() {
   const { state, dispatch } = useTaskContext()

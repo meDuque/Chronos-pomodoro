@@ -2,8 +2,8 @@ import { useEffect } from 'react'
 import { Container } from '../../components/Container'
 import { CountDown } from '../../components/CountDown'
 import { MainForm } from '../../components/MainForm'
-import { MainTemplate } from '../../templates/MainTemplate'
 import { ApplicationTittle } from '../../consts/Application'
+import { MainTemplate } from '../../templates/MainTemplate'
 
 export function Home() {
   useEffect(() => {

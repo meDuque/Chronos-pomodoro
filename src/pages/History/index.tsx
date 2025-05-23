@@ -4,14 +4,14 @@ import { showMessage } from '../../adapters/showMessage'
 import { Container } from '../../components/Container'
 import { DefaultButton } from '../../components/DefaultButton'
 import { Heading } from '../../components/Heading'
-import { TaskActionTypes } from '../../contexts/TaskContext/taskActions'
+import { ApplicationTittle } from '../../consts/Application'
 import { useTaskContext } from '../../contexts/TaskContext/UseTaskContext'
+import { TaskActionTypes } from '../../contexts/TaskContext/taskActions'
 import { MainTemplate } from '../../templates/MainTemplate'
 import { formatDate } from '../../utils/formatDate'
 import { getTaskStatus } from '../../utils/getaTaskStatus'
-import { sortTasks, type SortTasksOptions } from '../../utils/sortTasks'
+import { type SortTasksOptions, sortTasks } from '../../utils/sortTasks'
 import styles from './styles.module.css'
-import { ApplicationTittle } from '../../consts/Application'
 
 export function History() {
   const { state, dispatch } = useTaskContext()
